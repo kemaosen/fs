@@ -1,6 +1,7 @@
 {
-  "name": "ui-fs-vue",
-  "version": "0.1.0",
+  "name": "fs-ui-k",
+  "version": "0.0.2",
+  "description": "- 前置知识点\r - 注意事项\r - 其它技术\r - 组件\r   - fs-button\r   -",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -34,6 +35,8 @@
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11",
-    "vuepress": "^1.8.2"
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-autobar": "github:boboidream/vuepress-bar",
+    "vuepress-plugin-permalink-pinyin": "^1.0.0"
   }
 }
