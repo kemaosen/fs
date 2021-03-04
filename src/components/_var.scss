@@ -2,17 +2,31 @@ $input-height: 32px;
 $tabs-toast-height: 40px;
 $font-size: 14px;
 
+$color-primary:#409EFF;
+$color-success:#67C23A;
+$color-info:#909399;
+$color-warning:#E6A23C;
+$color-danger:#F56C6C;
+
+$color-primary-hover:#66b1ff;
+$color-success-hover:#85ce61;
+$color-info-hover:#a6a9ad;
+$color-warning-hover:#ebb563;
+$color-danger-hover:#f78989;
 //button组件样式
-$button-bg: white;
+$button-height:40px;
+$button-default-color: white;
 $button-active-bg: #eee;
 $border-radius: 4px;
-$border-color: #999;
+$border-color: #dcdfe6;
 $border-color-popover:#333;
 $border-color-ddd: #ddd;
 $border-color-blue: blue;
-$border-color-hover: #666;
+$border-color-hover: $color-primary;
 $border-color-light: lighten($border-color,30%);
 $box-color: rgba(0,0,0,.5);
+$button-default-hover-bg:#ecf5ff;
+$button-default-border-color:#c6e2ff;
 
 $color: #333;
 $color-blue: blue;

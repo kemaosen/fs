@@ -1,6 +1,6 @@
 <!-- 页面 -->
 <template>
-  <div>
+  <div class="container">
     <g-button>按钮</g-button>
     <g-button icon="settings">按钮</g-button>
     <g-button loading>按钮</g-button>
@@ -34,4 +34,8 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.container{
+  padding: 20px 0;
+}
+</style>

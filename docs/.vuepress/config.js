@@ -1,5 +1,4 @@
 const nav = require("./nav")
-// const sideb`ar = require("./sidebar")
 module.exports = {
   base:'/fs/',
   title: 'Kms',
@@ -16,7 +15,6 @@ module.exports = {
     }
   },
   themeConfig: {
-    // sidebar,
     nav,
     // logo: '/assets/img/logo.png',// 设置logo
     lastUpdated: 'Last Updated',// 显示最后更新时间

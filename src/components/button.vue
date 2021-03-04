@@ -1,7 +1,7 @@
 <template>
   <button
     class="g-button"
-    :class="{ [`icon-${iconPosition}`]: true }"
+    :class="{ [`icon-${iconPosition}`]: true, [`g-button-${type}`]: true }"
     @click="$emit('click')"
   >
     <!--<button class="g-button" :class="{undefined:true}">-->
@@ -27,9 +27,12 @@ export default {
   components: {
     "g-icon": Icon
   },
-  // props:['icon','iconPosition']
   props: {
     icon: {},
+    type: {
+      type: String,
+      default: "default"
+    },
     loading: {
       type: Boolean,
       default: false
@@ -70,21 +73,18 @@ export default {
 
 .g-button {
   font-size: $font-size;
-  height: $input-height;
-  padding: 0 1em;
+  height: $button-height;
+  line-height: 1;
+  padding: 12px 20px;
   border-radius: $border-radius;
   border: 1px solid $border-color;
-  background-color: $button-bg;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
+  text-align: center;
   /*解决按钮多个不对齐 设置基线对齐*/
   vertical-align: middle;
-
-  &:hover {
-    border-color: $border-color-hover;
-  }
-
+  box-sizing: border-box;
+  white-space: nowrap;
+  cursor: pointer;
   &:active {
     background-color: $button-active-bg;
   }
@@ -118,5 +118,64 @@ export default {
   .loading {
     animation: spin 2s infinite linear;
   }
+}
+.g-button-primary {
+  background-color: $color-primary;
+  border-color: $color-primary;
+  &:hover {
+    background-color: $color-primary-hover;
+    border-color: $color-primary-hover;
+  }
+}
+.g-button-success {
+  background-color: $color-success;
+  border-color: $color-success;
+  &:hover {
+    background-color: $color-success-hover;
+    border-color: $color-success-hover;
+  }
+}
+.g-button-info {
+  background-color: $color-info;
+  border-color: $color-info;
+  &:hover {
+    background-color: $color-info-hover;
+    border-color: $color-info-hover;
+  }
+}
+.g-button-danger {
+  background-color: $color-danger;
+  border-color: $color-danger;
+  &:hover {
+    background-color: $color-danger-hover;
+    border-color: $color-danger-hover;
+  }
+}
+.g-button-warning {
+  background-color: $color-warning;
+  border-color: $color-warning;
+  &:hover {
+    background-color: $color-warning-hover;
+    border-color: $color-warning-hover;
+  }
+}
+.g-button-default {
+  background-color: $button-default-color;
+  border-color: $border-color;
+  &:hover {
+    border-color: $button-default-border-color;
+    background-color: $button-default-hover-bg;
+  }
+}
+.g-button-primary,
+.g-button-success,
+.g-button-info,
+.g-button-danger,
+.g-button-warning {
+  color: #fff;
+}
+.g-button + .g-button,
+.g-button + .g-button-group {
+  margin-left: 0.5em;
 }
 </style>
