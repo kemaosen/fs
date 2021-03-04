@@ -1,2 +1,5 @@
 # Button
-<button-demos></button-demos>
+
+<ClientOnly>
+  <button-demos></button-demos>
+</ClientOnly>
