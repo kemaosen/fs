@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /hero.png
+heroImage: /index/logo.jpg
 heroText: 丧丧的组件库
 tagline: 丧丧
 actionText: 快速上手 →
