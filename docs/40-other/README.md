@@ -14,3 +14,6 @@
   /* 特定页面的 CSS */
 }
 ```
+
+- 查看自动化测试测试结果
+https://travis-ci.org/github/kemaosen/fs

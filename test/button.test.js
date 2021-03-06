@@ -64,12 +64,14 @@ describe('Button', () => {
     vm.$destroy()
   })
   it('可以设置size.', () => {
+    const div = document.createElement('div')
+    document.body.appendChild(div)
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
       propsData: {
         size: 'mini'
       }
-    }).$mount()
+    }).$mount(div)
     const element = vm.$el.classList
     expect(element.indexOf('g-button-size-mini') >= 0).to.equal(true)
     vm.$destroy()
