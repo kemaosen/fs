@@ -1,4 +1,4 @@
-const expect = chai.expect;
+const expect = chai.expect
 import Vue from 'vue'
 import Button from '../src/button'
 
@@ -40,7 +40,7 @@ describe('Button', () => {
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
       propsData: {
-        icon: 'settings',
+        icon: 'settings'
       }
     }).$mount(div)
     const icon = vm.$el.querySelector('svg')
@@ -63,18 +63,28 @@ describe('Button', () => {
     vm.$el.remove()
     vm.$destroy()
   })
+  it('可以设置size.', () => {
+    const Constructor = Vue.extend(Button)
+    const vm = new Constructor({
+      propsData: {
+        size: 'mini'
+      }
+    }).$mount()
+    const element = vm.$el.classList
+    expect(element.indexOf('g-button-size-mini') >= 0).to.equal(true)
+    vm.$destroy()
+  })
   it('点击 button 触发 click 事件', () => {
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
       propsData: {
-        icon: 'settings',
+        icon: 'settings'
       }
     }).$mount()
     
-    const callback = sinon.fake();
+    const callback = sinon.fake()
     vm.$on('click', callback)
     vm.$el.click()
     expect(callback).to.have.been.called
-    
   })
 })

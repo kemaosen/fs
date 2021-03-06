@@ -26,6 +26,8 @@ $border-color-hover: $color-primary;
 $border-color-light: lighten($border-color,30%);
 $box-color: rgba(0,0,0,.5);
 $button-default-hover-bg:#ecf5ff;
+$button-default-border-color-hover:#3a8ee6;
+$button-default-action-bg:$button-default-hover-bg;
 $button-default-border-color:#c6e2ff;
 
 $color: #333;
