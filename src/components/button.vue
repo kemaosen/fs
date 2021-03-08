@@ -4,9 +4,10 @@
     :class="{
       [`icon-${iconPosition}`]: true,
       [`g-button-${type}`]: true,
-      [`g-button-size-${size}`]: true
+      [`g-button-size-${size}`]: true,
+      'g-button-disabled': disabled,
     }"
-    @click="$emit('click')"
+    @click="!disabled && $emit('click')"
   >
     <g-icon class="icon" v-if="icon && !loading" :name="icon"></g-icon>
     <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
@@ -26,7 +27,6 @@ export default {
     'g-icon': Icon
   },
   mounted() {
-    console.log(this.$el.classList)
   },
   props: {
     icon: {
@@ -54,6 +54,10 @@ export default {
         console.log(value)
         return ['default', 'medium', 'small', 'mini'].indexOf(value) >= 0
       }
+    },
+    disabled: {
+      type: Boolean,
+      default:false
     }
   },
   methods: {}
@@ -239,6 +243,13 @@ export default {
   padding: 7px 15px;
   border-radius: 3px;
   font-size: 12px;
+}
+
+.g-button-disabled,.g-button-disabled:hover,.g-button-disabled:active,.g-button-disabled:focus{
+  cursor: not-allowed;
+  color:$button-disabled-color;
+  border-color:$button-disabled-border-color;
+  background-color:#fff
 }
 
 .g-button + .g-button{

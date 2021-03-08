@@ -1,18 +1,18 @@
 <!-- 页面 -->
 <template>
-  <div class="content">
+  <div class="main">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "DistanceContent"
+  name: "DistanceMain"
 };
 </script>
 
 <style scoped lang="scss">
-.content {
+.main {
   flex-grow: 1;
 }
 </style>

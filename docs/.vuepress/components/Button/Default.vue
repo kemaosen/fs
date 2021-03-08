@@ -7,6 +7,7 @@
     <g-button type="info">默认按钮</g-button>
     <g-button type="warning">默认按钮</g-button>
     <g-button type="danger">默认按钮</g-button>
+    <g-button  disabled>默认按钮</g-button>
     <pre>
       <code>
       {{ html }}

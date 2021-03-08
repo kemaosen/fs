@@ -13,12 +13,13 @@ $color-success-hover:#85ce61;
 $color-info-hover:#a6a9ad;
 $color-warning-hover:#ebb563;
 $color-danger-hover:#f78989;
+//input button 公用
+$border-color: #dcdfe6;
 //button组件样式
 $button-height:40px;
 $button-default-color: white;
 $button-active-bg: #eee;
 $border-radius: 4px;
-$border-color: #dcdfe6;
 $border-color-popover:#333;
 $border-color-ddd: #ddd;
 $border-color-blue: blue;
@@ -29,6 +30,11 @@ $button-default-hover-bg:#ecf5ff;
 $button-default-border-color-hover:#3a8ee6;
 $button-default-action-bg:$button-default-hover-bg;
 $button-default-border-color:#c6e2ff;
+$button-disabled-color:#c0c4cc;
+$button-disabled-border-color:#ebeef5;
+//input组件
+$input-placeholder-color:#C0C4CC;
+$input-border-color:$border-color;
 
 $color: #333;
 $color-blue: blue;

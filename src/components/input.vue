@@ -73,10 +73,12 @@ export default {
       border: 1px solid #409eff;
       outline: none;
     }
-
+    &::placeholder{
+      color: $input-placeholder-color;
+    }
     &[disabled],
     &[readonly] {
-      border-color: #aaa;
+      border-color: $border-color;
       color: #aaa;
       cursor: not-allowed;
     }

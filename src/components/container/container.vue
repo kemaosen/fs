@@ -1,29 +1,29 @@
 <!-- 页面 -->
 <template>
-  <div class="layout" :class="layoutClass">
+  <div class="container" :class="containerClass">
     <slot></slot>
   </div>
 </template>
 <script>
 export default {
-  name: "DistanceLayout",
+  name: "GContainer",
   mounted() {
     this.$children.forEach(element => {
-      if (element.$options.name === "GSider") {
-        this.layoutClass.hanSider = true;
+      if (element.$options.name === "GAside") {
+        this.containerClass.hanSider = true;
       }
     });
   },
   data() {
     return {
-      layoutClass: { hanSider: false }
+      containerClass: { hanSider: false }
     };
   }
 };
 </script>
 
 <style scoped lang="scss">
-.layout {
+.container {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
