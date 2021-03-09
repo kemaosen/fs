@@ -4,6 +4,7 @@
     <g-input placeholder="请输入内容"></g-input>
     <g-input v-model="value" placeholder="请输入内容"></g-input>
     <g-input disabled placeholder="请输入内容"></g-input>
+    <g-input v-model="value"  placeholder="请输入内容" error="我犯错了"></g-input>
     <pre>
       <code>
       {{ html }}

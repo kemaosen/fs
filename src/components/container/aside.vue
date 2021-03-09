@@ -1,6 +1,6 @@
 <!-- 页面 -->
 <template>
-  <div class="aside" :style="{'width':width}">
+  <div class="aside" :style="{ width: width }">
     <slot></slot>
   </div>
 </template>
@@ -8,9 +8,9 @@
 <script>
 export default {
   name: "GAside",
-  props:{
-    width:{
-      type:String
+  props: {
+    width: {
+      type: String
     }
   }
 };

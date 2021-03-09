@@ -5,3 +5,7 @@
 <ClientOnly>
   <Input-Default></Input-Default>
 </ClientOnly>
+### Attributes
+<ClientOnly>
+  <Input-Attributes></Input-Attributes>
+</ClientOnly>

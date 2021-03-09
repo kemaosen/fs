@@ -13,3 +13,11 @@ container 布局容器
 <ClientOnly>
   <Container-Default></Container-Default>
 </ClientOnly>
+
+### Container Attributes
+子元素的排列方向默认是`flex-direction: column`;
+若含有`<g-aside>`子组件 则子元素的排列方向`flex-direction: row`
+### Aside Attributes
+| 参数        | 说明           | 类型  |可选值|默认值|
+| ------------- |:-------------:| -----:| -----:| -----:|
+|width      |设置Aside的width值|Number|||
