@@ -36,10 +36,20 @@ $button-disabled-border-color:#ebeef5;
 $input-placeholder-color:#C0C4CC;
 $input-border-color:$border-color;
 
+//message 组件
+$message-info-border-color:$button-disabled-border-color;
+$message-info-bg-color:#edf2fc;
+$message-success-border-color:#e1f3d8;
+$message-success-bg-color:#f0f9eb;
+
+$message-warning-border-color:#fdf6ec;
+$message-warning-bg-color:#faecd8;
+$message-error-border-color:#fef0f0;
+$message-error-bg-color:#fde2e2;
+
 $color: #333;
 $color-blue: blue;
 $color-disabled: grey;
 // error
 $red: #F1453D;
 
-$toast-bg:rgba(0,0,0,0.75);

@@ -22,12 +22,6 @@ export default {
     }
   },
   mounted() {
-    this.$children.forEach(
-      function(vm) {
-        vm.gutter = this.gutter;
-      }.bind(this)
-    );
-    // 等于
     this.$children.forEach(vm => {
       vm.gutter = this.gutter;
     });

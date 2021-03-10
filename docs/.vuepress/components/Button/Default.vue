@@ -3,10 +3,10 @@
   <div class="container">
     <g-button>默认按钮</g-button>
     <g-button type="primary">默认按钮</g-button>
-    <g-button type="success">默认按钮</g-button>
-    <g-button type="info">默认按钮</g-button>
-    <g-button type="warning">默认按钮</g-button>
-    <g-button type="danger">默认按钮</g-button>
+    <g-button type="success">成功按钮</g-button>
+    <g-button type="info">信息按钮</g-button>
+    <g-button type="warning">警告按钮</g-button>
+    <g-button type="danger">错误按钮</g-button>
     <g-button  disabled>默认按钮</g-button>
     <pre>
       <code>

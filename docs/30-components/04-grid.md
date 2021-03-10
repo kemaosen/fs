@@ -46,3 +46,44 @@ xl	≥1920px 响应式栅格数或者栅格属性对象	object (例如： {span:
 <ClientOnly>
   <Grid-ColAttributes></Grid-ColAttributes>
 </ClientOnly>
+
+### 组件解析
+Grid组件需要注意的地方就是  
+在`<g-row ></g-row>`组件设置gutter，如何给每个子元素`<g-col></g-col>`都添加一个值为gutter的间距  
+最后的方案是通过设置在父元素`<g-row />`中通过mounted传递给子元素
+```
+// row
+mounted() {
+  this.$children.forEach(vm => {
+    vm.gutter = this.gutter;
+  });
+},
+// 因为给每个子元素设置padding  那么最左右的那个元素都会空出gutter/2的空白。
+// 为了去除空白 可以在<g-row>上添加左右的margin(gutter/2) 来平衡
+computed: {
+  rowStyle() {
+    let { gutter } = this;
+    return {
+      marginLeft: -gutter / 2 + "px",
+      marginRight: -gutter / 2 + "px"
+    };
+  }
+}
+```
+如此在子元素中col中设置,并添加左右的一个padding    
+```
+// col
+data() {
+  return {
+    gutter: 0
+  }
+},
+computed: {
+  colStyle() {
+    return {
+      paddingLeft: this.gutter / 2 + 'px',
+      paddingRight: this.gutter / 2 + 'px'
+    }
+  }
+}
+```
