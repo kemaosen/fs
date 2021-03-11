@@ -1,7 +1,10 @@
 <!-- 手风琴页面 -->
 <template>
   <div class="collapseTitle">
-    <div class="title" @click="toggle">{{ title }}</div>
+    <div v-if="title" class="title" @click="toggle">{{ title }}</div>
+    <div v-else class="title" @click="toggle">
+      <slot name="title"></slot>
+    </div>
     <div class="content" v-if="open">
       <slot></slot>
     </div>
@@ -42,6 +45,7 @@ export default {
     toggle() {
       if (this.open) {
         this.eventBus.$emit("update:removeSelected", this.name);
+        console.log();
       } else {
         this.eventBus.$emit("update:addSelected", this.name);
       }
@@ -55,7 +59,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "var";
+@import "src/components/var";
 
 .collapseTitle {
   .title {

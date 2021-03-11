@@ -45,6 +45,19 @@
         <g-button>right</g-button>
       </g-popover>
     </div>
+    <hr />
+    <g-collapse :selected="[1, 2]">
+      <g-collapse-item name="1" title="第一个">
+        <div>
+          <p>我是第一个</p>
+        </div>
+      </g-collapse-item>
+      <g-collapse-item name="2" title="第二个">
+        <div>
+          <p>我是第二个</p>
+        </div>
+      </g-collapse-item>
+    </g-collapse>
   </div>
 </template>
 <script>

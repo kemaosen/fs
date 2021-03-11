@@ -10,7 +10,7 @@ import Vue from "vue";
 export default {
   name: "DistanceCollapse",
   props: {
-    single: {
+    accordion: {
       // 是否可以自动收缩
       type: Boolean,
       default: false
@@ -28,10 +28,10 @@ export default {
     // 页面加载通知子组件 显示那个
     this.eventBus.$emit("update:selected", this.selected);
     // 在父组件使用变量控制的时候 需要实时对接数据  父组件与当前组件(本页面) 值同步
+    // 深拷贝
+    let selectCopy = JSON.parse(JSON.stringify(this.selected));
     this.eventBus.$on("update:addSelected", name => {
-      // 深拷贝
-      let selectCopy = JSON.parse(JSON.stringify(this.selected));
-      if (this.single) {
+      if (this.accordion) {
         selectCopy = [name];
       } else {
         selectCopy.push(name);
@@ -51,17 +51,12 @@ export default {
     return {
       eventBus: new Vue()
     };
-  },
-  methods: {},
-  watch: {},
-  filters: {},
-  computed: {},
-  components: {}
+  }
 };
 </script>
 
 <style scoped lang="scss">
-@import "var";
+@import "src/components/var";
 .collapse {
   border: 1px solid $border-color-ddd;
   border-radius: $border-radius;

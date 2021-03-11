@@ -20,6 +20,8 @@ import Aside from "@/components/container/aside";
 import Plugin from "@/components/Plugins/message.js";
 Vue.use(Plugin);
 import Popover from "@/components/popover";
+import CollapseItem from "@/components/collapse/collapse-item";
+import Collapse from "@/components/collapse/collapse";
 Vue.component("g-icon", Icon);
 Vue.component("g-button", Button);
 Vue.component("g-button-group", ButtonGroup);
@@ -32,7 +34,8 @@ Vue.component("g-footer", Footer);
 Vue.component("g-main", Main);
 Vue.component("g-aside", Aside);
 Vue.component("g-popover", Popover);
-// Vue.component("g-toast", Message);
+Vue.component("g-collapse-item", CollapseItem);
+Vue.component("g-collapse", Collapse);
 
 new Vue({
   router,
