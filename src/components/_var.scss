@@ -20,7 +20,6 @@ $button-height:40px;
 $button-default-color: white;
 $button-active-bg: #eee;
 $border-radius: 4px;
-$border-color-popover:#333;
 $border-color-ddd: #ddd;
 $border-color-blue: blue;
 $border-color-hover: $color-primary;
@@ -46,7 +45,8 @@ $message-warning-border-color:#fdf6ec;
 $message-warning-bg-color:#faecd8;
 $message-error-border-color:#fef0f0;
 $message-error-bg-color:#fde2e2;
-
+//Popover
+$border-color-popover:$button-disabled-border-color;
 $color: #333;
 $color-blue: blue;
 $color-disabled: grey;

@@ -17,9 +17,9 @@ import Header from "@/components/container/header";
 import Footer from "@/components/container/footer";
 import Main from "@/components/container/main";
 import Aside from "@/components/container/aside";
-// import Message from "@/components/toast";
 import Plugin from "@/components/Plugins/message.js";
 Vue.use(Plugin);
+import Popover from "@/components/popover";
 Vue.component("g-icon", Icon);
 Vue.component("g-button", Button);
 Vue.component("g-button-group", ButtonGroup);
@@ -31,6 +31,7 @@ Vue.component("g-header", Header);
 Vue.component("g-footer", Footer);
 Vue.component("g-main", Main);
 Vue.component("g-aside", Aside);
+Vue.component("g-popover", Popover);
 // Vue.component("g-toast", Message);
 
 new Vue({

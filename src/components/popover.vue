@@ -1,13 +1,20 @@
 <!-- 页面 -->
 <template>
-  <div class="popover" ref="popover">
+  <div class="g-popover" ref="popover">
     <div
       ref="contentWrapper"
       :class="[`position-${position}`]"
       class="content-wrapper"
       v-if="visible"
+      :style="{ width: width + 'px' }"
     >
-      <slot name="content"></slot>
+      <div class="content-title" v-if="title">{{ title }}</div>
+      <template v-if="content">
+        {{ content }}
+      </template>
+      <template v-else>
+        <slot name="content"></slot>
+      </template>
     </div>
     <span ref="triggerWrapper" style="display:inline-block">
       <slot></slot>
@@ -50,6 +57,13 @@ export default {
     return { visible: false };
   },
   props: {
+    trigger: {
+      type: String,
+      default: "click",
+      validator(value) {
+        return ["click", "hover"].indexOf(value) >= 0;
+      }
+    },
     position: {
       type: String,
       default: "top",
@@ -57,23 +71,33 @@ export default {
         return ["top", "bottom", "left", "right"].indexOf(value) >= 0;
       }
     },
-    trigger: {
-      type: String,
-      default: "click",
-      validator(value) {
-        return ["click", "hover"].indexOf(value) >= 0;
-      }
+    // 显示用的文字
+    content: {
+      type: String
+    },
+    title: {
+      type: String
+    },
+    width: {
+      type: [String, Number],
+      default: "150"
     }
   },
   methods: {
     positionContent() {
       // 显示弹出内容 并定位到当前点击位置
+      // 获取内容区域El, 获取触发区域El
       const { contentWrapper, triggerWrapper } = this.$refs;
+      // 将内容区域挂在到body上
       document.body.appendChild(contentWrapper);
+      // 获取触发元素距离左上原点的 left top 的值
       let { width, height, left, top } = triggerWrapper.getBoundingClientRect();
-      let { height: height2 } = contentWrapper.getBoundingClientRect();
 
-      let x = {
+      let { height: height2 } = contentWrapper.getBoundingClientRect();
+      // 计算出每一种this.position 的 contentWrapper的位置
+      // window.scrollY 页面沿Y轴滚动的距离
+      // window.scrollX 页面沿X轴滚动的距离
+      let positionType = {
         top: { top: top + window.scrollY, left: left + window.scrollX },
         bottom: {
           top: top + height + window.scrollY,
@@ -88,8 +112,8 @@ export default {
           top: top + window.scrollY + (height - height2) / 2
         }
       };
-      contentWrapper.style.top = x[this.position].top + "px";
-      contentWrapper.style.left = x[this.position].left + "px";
+      contentWrapper.style.top = positionType[this.position].top + "px";
+      contentWrapper.style.left = positionType[this.position].left + "px";
       document.addEventListener("click", this.onClickDocument);
     },
     onClickDocument(e) {
@@ -140,7 +164,7 @@ export default {
 
 <style scoped lang="scss">
 @import "var";
-.popover {
+.g-popover {
   display: inline-block;
   vertical-align: top;
   position: relative;
@@ -149,17 +173,19 @@ export default {
   position: absolute;
   border: 1px solid $border-color-popover;
   border-radius: $border-radius;
-  padding: 0.5em 1em;
-  // box-shadow: 0 1px 1px rgba(0, 0, 0, .5);
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+  padding: 18px 20px;
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.1));
   background-color: white;
-  max-width: 20em;
+  //max-width: 20em;
+  min-width: 150px;
   word-break: break-all;
+  font-size: 14px;
+  color: #606266;
   &::before,
   &::after {
     content: "";
     display: block;
-    border: 10px solid transparent;
+    border: 7px solid transparent;
     width: 0;
     height: 0;
     position: absolute;
@@ -173,7 +199,7 @@ export default {
       left: 10px;
     }
     &::before {
-      border-top-color: black;
+      border-top-color: $border-color-popover;
       top: 100%;
     }
     &::after {
@@ -188,7 +214,7 @@ export default {
       left: 10px;
     }
     &::before {
-      border-bottom-color: black;
+      border-bottom-color: $border-color-popover;
       bottom: 100%;
     }
     &::after {
@@ -207,7 +233,7 @@ export default {
       transform: translateY(-50%);
     }
     &::before {
-      border-left-color: black;
+      border-left-color: $border-color-popover;
     }
     &::after {
       border-left-color: white;
@@ -223,12 +249,18 @@ export default {
       transform: translateY(-50%);
     }
     &::before {
-      border-right-color: black;
+      border-right-color: $border-color-popover;
     }
     &::after {
       border-right-color: white;
       right: calc(100% - 1px);
     }
+  }
+  & .content-title {
+    font-size: 16px;
+    line-height: 1;
+    margin-bottom: 12px;
+    color: #303133;
   }
 }
 </style>
