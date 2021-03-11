@@ -33,7 +33,7 @@ export default {
     closeButton: {
       type: Object,
       default: () => {
-        return { text: "关闭", callback: undefined };
+        return { callback: undefined };
       }
     },
     enableHTML: {

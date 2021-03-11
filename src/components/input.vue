@@ -73,9 +73,11 @@ export default {
       border: 1px solid #409eff;
       outline: none;
     }
-    &::placeholder{
+
+    &::placeholder {
       color: $input-placeholder-color;
     }
+
     &[disabled],
     &[readonly] {
       border-color: $border-color;
@@ -87,6 +89,7 @@ export default {
   &.error {
     > input {
       border: 1px solid $red;
+
       &:focus {
         outline: none;
       }

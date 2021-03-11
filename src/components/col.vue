@@ -6,20 +6,20 @@
 
 <script>
 let validator = value => {
-  let keys = Object.keys(value)
-  let valid = true // 默认合法
+  let keys = Object.keys(value);
+  let valid = true; // 默认合法
   keys.forEach(key => {
-    if (!['span', 'offset'].includes(key)) {
-      valid = false
+    if (!["span", "offset"].includes(key)) {
+      valid = false;
     }
-  })
-  return valid
-}
+  });
+  return valid;
+};
 export default {
-  name: 'DistanceCol',
+  name: "DistanceCol",
   props: {
     span: {
-      type: [Number, String],
+      type: [Number, String]
     },
     offset: {
       type: [Number, String]
@@ -33,11 +33,11 @@ export default {
   data() {
     return {
       gutter: 0
-    }
+    };
   },
   computed: {
     colClasses() {
-      let { span, offset, xs, sm, md, lg, xl } = this
+      let { span, offset, xs, sm, md, lg, xl } = this;
       // 版本一
       // let phoneClass = [];
       // let ipadClass = [];
@@ -62,20 +62,20 @@ export default {
       // 版本二：
       // 版本三：使用函数返回
       let creatClasses = (obj, str) => {
-        if (!obj) return []
-        let array = []
+        if (!obj) return [];
+        let array = [];
         if (obj.span) {
-          array.push(`col-${ str }${ obj.span }`)
+          array.push(`col-${str}${obj.span}`);
         }
         if (obj.offset || obj.offset === 0) {
-          array.push(`offset-${ str }${ obj.offset }`)
+          array.push(`offset-${str}${obj.offset}`);
         }
-        return array
-      }
+        return array;
+      };
       // <!-- 有就显示  -->
       return [
-        span && `col-${ span }`,
-        offset && `offset-${ offset || 0 }`,
+        span && `col-${span}`,
+        offset && `offset-${offset || 0}`,
         // 版本一
         // phoneClass,
         // ipadClass,
@@ -89,113 +89,113 @@ export default {
         // ... (pc ? [`col-pc-${pc.span}`,`offset-pc-${pc.offset}`] : []),
         // ... (widePc ? [`col-wide-pc-${widePc.span}`,`offset-wide-pc-${widePc.offset}`] : []),
         // 版本三: 使用函数返回
-        ...creatClasses(xs, 'xs-'),
-        ...creatClasses(sm, 'sm-'),
-        ...creatClasses(md, 'md-'),
-        ...creatClasses(lg, 'lg-'),
-        ...creatClasses(xl, 'xl-'),
-      ]
+        ...creatClasses(xs, "xs-"),
+        ...creatClasses(sm, "sm-"),
+        ...creatClasses(md, "md-"),
+        ...creatClasses(lg, "lg-"),
+        ...creatClasses(xl, "xl-")
+      ];
     },
     colStyle() {
       return {
-        paddingLeft: this.gutter / 2 + 'px',
-        paddingRight: this.gutter / 2 + 'px'
-      }
+        paddingLeft: this.gutter / 2 + "px",
+        paddingRight: this.gutter / 2 + "px"
+      };
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
-.col{
+.col {
   box-sizing: border-box;
   $class-prefix: col-;
-  @for $n from 1 through 24{
-    &.#{$class-prefix}#{$n}{
+  @for $n from 1 through 24 {
+    &.#{$class-prefix}#{$n} {
       width: ($n / 24) * 100%;
     }
   }
   $class-prefix: offset-;
-  @for $n from 1 through 24{
-    &.#{$class-prefix}#{$n}{
+  @for $n from 1 through 24 {
+    &.#{$class-prefix}#{$n} {
       margin-left: ($n / 24) * 100%;
     }
   }
 
   // xs
-  @media (min-width: 556px){
+  @media (min-width: 556px) {
     $class-prefix: col-xs-;
-    @for $n from 1 through 24{
-      &.#{$class-prefix}#{$n}{
+    @for $n from 1 through 24 {
+      &.#{$class-prefix}#{$n} {
         width: ($n / 24) * 100%;
       }
     }
     $class-prefix: offset-xs-;
-    @for $n from 1 through 24{
-      &.#{$class-prefix}#{$n}{
+    @for $n from 1 through 24 {
+      &.#{$class-prefix}#{$n} {
         margin-left: ($n / 24) * 100%;
       }
     }
   }
   // xs
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     $class-prefix: col-sm-;
-    @for $n from 1 through 24{
-      &.#{$class-prefix}#{$n}{
+    @for $n from 1 through 24 {
+      &.#{$class-prefix}#{$n} {
         width: ($n / 24) * 100%;
       }
     }
     $class-prefix: offset-sm-;
-    @for $n from 1 through 24{
-      &.#{$class-prefix}#{$n}{
+    @for $n from 1 through 24 {
+      &.#{$class-prefix}#{$n} {
         margin-left: ($n / 24) * 100%;
       }
     }
   }
   // md
-  @media (min-width: 992px){
+  @media (min-width: 992px) {
     $class-prefix: col-md-;
-    @for $n from 1 through 24{
-      &.#{$class-prefix}#{$n}{
+    @for $n from 1 through 24 {
+      &.#{$class-prefix}#{$n} {
         width: ($n / 24) * 100%;
       }
     }
     $class-prefix: offset-md-;
-    @for $n from 0 through 24{
-      &.#{$class-prefix}#{$n}{
+    @for $n from 0 through 24 {
+      &.#{$class-prefix}#{$n} {
         margin-left: ($n / 24) * 100%;
       }
     }
-    &.offset-md-0{
+    &.offset-md-0 {
       margin-left: 0;
     }
   }
   // lg
-  @media (min-width: 1200px){
+  @media (min-width: 1200px) {
     $class-prefix: col-lg-;
-    @for $n from 1 through 24{
-      &.#{$class-prefix}#{$n}{
+    @for $n from 1 through 24 {
+      &.#{$class-prefix}#{$n} {
         width: ($n / 24) * 100%;
       }
     }
     $class-prefix: offset-lg-;
-    @for $n from 1 through 24{
-      &.#{$class-prefix}#{$n}{
+    @for $n from 1 through 24 {
+      &.#{$class-prefix}#{$n} {
         margin-left: ($n / 24) * 100%;
       }
     }
   }
   // xl
-  @media (min-width: 1920px){
+  @media (min-width: 1920px) {
     $class-prefix: col-xl-;
-    @for $n from 1 through 24{
-      &.#{$class-prefix}#{$n}{
+    @for $n from 1 through 24 {
+      &.#{$class-prefix}#{$n} {
         width: ($n / 24) * 100%;
       }
     }
     $class-prefix: offset-xl-;
-    @for $n from 1 through 24{
-      &.#{$class-prefix}#{$n}{
+    @for $n from 1 through 24 {
+      &.#{$class-prefix}#{$n} {
         margin-left: ($n / 24) * 100%;
       }
     }

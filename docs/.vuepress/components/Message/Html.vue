@@ -1,7 +1,7 @@
 <!-- 页面 -->
 <template>
   <div class="container">
-    <g-button @click="handleOpenMessage" >默认</g-button>
+    <g-button @click="handleOpenMessage">HTML</g-button>
     <pre>
       <code>
       {{ html }}
@@ -24,11 +24,12 @@ Vue.use(message);
     data() {
       return {
         html:`
-        <g-button @click="handleOpenMessage">默认</g-button>
+        <g-button @click="handleOpenMessage">HTML</g-button>
           methods: {
             handleOpenMessage() {
               this.$message({
-                message:'默认提示',
+                message:<div style="color:red"> 这是一段Html</div>,
+                enableHTML:true
               });
             }
           }
@@ -38,7 +39,8 @@ Vue.use(message);
     methods: {
       handleOpenMessage() {
         this.$message({
-          message:'默认提示',
+          message:`<div style="color:red"> 这是一段Html</div>`,
+          enableHTML:true
         });
       },
     }

@@ -29,3 +29,9 @@
 <ClientOnly>
   <Button-Attributes></Button-Attributes>
 </ClientOnly>
+
+### 组件解析
+1. iconPosition
+iconPosition属性通过设置left | right来设置icon在左侧还是右侧.这是是通过flex-order来设置的.
+2. 组件难点
+button组件在于不同状态下样式会有些冲突.写的时候要注意 组织好每种状态的样式
