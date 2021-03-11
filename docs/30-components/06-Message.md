@@ -20,3 +20,6 @@
   <Message-Html></Message-Html>
 </ClientOnly>
 ### Attributes
+<ClientOnly>
+  <Message-Attributes></Message-Attributes>
+</ClientOnly>

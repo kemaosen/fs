@@ -1,10 +1,10 @@
 <!-- 页面 -->
 <template>
   <div class="container">
-    <g-button @click="handleOpenMessage3" type="info">信息按钮</g-button>
-    <g-button @click="handleOpenMessage2" type="success">成功按钮</g-button>
-    <g-button @click="handleOpenMessage4" type="warning">警告按钮</g-button>
-    <g-button @click="handleOpenMessage5" type="danger">错误按钮</g-button>
+    <g-button @click="handleOpenMessage3" type="info">默认</g-button>
+    <g-button @click="handleOpenMessage2" type="success">成功</g-button>
+    <g-button @click="handleOpenMessage4" type="warning">警告</g-button>
+    <g-button @click="handleOpenMessage5" type="danger">错误</g-button>
     <pre>
       <code>
       {{ html }}
@@ -27,10 +27,10 @@ Vue.use(message);
     data() {
       return {
         html:`
-        <g-button @click="handleOpenMessage3" type="info">信息按钮</g-button>
-        <g-button @click="handleOpenMessage2" type="success">成功按钮</g-button>
-        <g-button @click="handleOpenMessage4" type="warning">警告按钮</g-button>
-        <g-button @click="handleOpenMessage5" type="danger">错误按钮</g-button>
+        <g-button @click="handleOpenMessage3" type="info">默认</g-button>
+        <g-button @click="handleOpenMessage2" type="success">成功</g-button>
+        <g-button @click="handleOpenMessage4" type="warning">警告</g-button>
+        <g-button @click="handleOpenMessage5" type="danger">错误</g-button>
           methods: {
             handleOpenMessage3() {
               this.$message('这是一条消息提示');

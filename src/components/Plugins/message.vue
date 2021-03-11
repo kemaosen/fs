@@ -133,6 +133,7 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   z-index: 2000;
+  max-width: 50%;
   .toast {
     // top: 0;
     font-size: $font-size;
@@ -157,6 +158,7 @@ export default {
       }
       & .g-icon {
         margin-right: 0.5em;
+        flex-shrink: 0;
       }
       & .close {
         padding: 0 5px;
