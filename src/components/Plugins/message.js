@@ -27,7 +27,8 @@ function creatToast({ Vue, message, propsData, onClose }) {
   let Constructor = Vue.extend(Message);
   let messageComponent = new Constructor({ propsData });
   messageComponent.$slots.default = [message];
-  messageComponent.$mount(); //
+  messageComponent.$mount();
+  // 理解为在父组件使用子组件 子组件向父组件通信
   messageComponent.$on("close", onClose);
   document.body.appendChild(messageComponent.$el);
   return messageComponent;

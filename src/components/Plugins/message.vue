@@ -8,7 +8,7 @@
           <slot v-if="!enableHTML"></slot>
           <div v-else v-html="$slots.default[0]"></div>
         </div>
-        <span v-if="showClose" class="close" @click="onClickClose">x</span>
+        <span v-if="showClose" class="close" @click="close">x</span>
       </div>
     </div>
   </div>
@@ -29,12 +29,6 @@ export default {
     showClose: {
       type: Boolean,
       default: false
-    },
-    closeButton: {
-      type: Object,
-      default: () => {
-        return { callback: undefined };
-      }
     },
     enableHTML: {
       type: Boolean,
@@ -74,12 +68,6 @@ export default {
       this.$el.remove();
       this.$emit("close");
       this.$destroy();
-    },
-    onClickClose() {
-      this.close();
-      if (this.closeButton && typeof this.closeButton.callback === "function") {
-        this.closeButton.callback();
-      }
     }
   },
   components: { "g-icon": Icon },
