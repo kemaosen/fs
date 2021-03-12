@@ -24,7 +24,6 @@ export default {
   inject: ["eventBus"],
   mounted() {
     this.eventBus.$on("update:selected", names => {
-      console.log(names);
       if (names.indexOf(this.name) >= 0) {
         // 当前组件的this 与传进来的this 不相等  关闭当前组件的手风琴
         this.open = true;
@@ -45,7 +44,6 @@ export default {
     toggle() {
       if (this.open) {
         this.eventBus.$emit("update:removeSelected", this.name);
-        console.log();
       } else {
         this.eventBus.$emit("update:addSelected", this.name);
       }

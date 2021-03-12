@@ -50,7 +50,6 @@ export default {
       type: String,
       default: "default",
       validator(value) {
-        console.log(value);
         return ["default", "medium", "small", "mini"].indexOf(value) >= 0;
       }
     },

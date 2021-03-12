@@ -40,17 +40,21 @@ export default {
     }
   },
   destroyed() {
+    console.log(this.$refs);
     if (this.trigger === "click") {
-      this.$refs.popover.removeEventListener("click", () => {
-        this.open();
-      });
+      this.$refs.popover &&
+        this.$refs.popover.removeEventListener("click", () => {
+          this.open();
+        });
     } else {
-      this.$refs.popover.removeEventListener("mouseenter", () => {
-        this.open();
-      });
-      this.$refs.popover.removeEventListener("mouseleave", () => {
-        this.close();
-      });
+      this.$refs.popover &&
+        this.$refs.popover.removeEventListener("mouseenter", () => {
+          this.open();
+        });
+      this.$refs.popover &&
+        this.$refs.popover.removeEventListener("mouseleave", () => {
+          this.close();
+        });
     }
   },
   data() {

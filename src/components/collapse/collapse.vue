@@ -31,6 +31,7 @@ export default {
     // 深拷贝
     let selectCopy = JSON.parse(JSON.stringify(this.selected));
     this.eventBus.$on("update:addSelected", name => {
+      console.log(selectCopy, "addSelected");
       if (this.accordion) {
         selectCopy = [name];
       } else {
@@ -39,12 +40,15 @@ export default {
       this.eventBus.$emit("update:selected", selectCopy);
       this.$emit("update:selected", selectCopy);
     });
+
     this.eventBus.$on("update:removeSelected", name => {
-      let selectCopy = JSON.parse(JSON.stringify(this.selected));
+      // let selectCopy = JSON.parse(JSON.stringify(this.selected));
+      console.log(selectCopy, "removeSelecte1d");
       let index = selectCopy.indexOf(name);
       selectCopy.splice(index, 1);
       this.eventBus.$emit("update:selected", selectCopy);
       this.$emit("update:selected", selectCopy);
+      console.log(selectCopy, "removeSelecte2d");
     });
   },
   data() {

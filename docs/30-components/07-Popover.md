@@ -16,7 +16,7 @@ trigger属性用于设置何时触发 Popover，支持四种触发方式：hover
 
 ### 组件解析
 1. trigger组件的触发状态是通过 addEventListener绑定事件来触发的
-```vue
+```js
   mounted() {
     if (this.trigger === "click") {
       this.$refs.popover.addEventListener("click", () => {this.open();});
@@ -44,7 +44,7 @@ trigger属性用于设置何时触发 Popover，支持四种触发方式：hover
   }
 ```
 2. Popover弹出框显示出来的位置如何定位
-```vue
+```js
     // 显示弹出内容 并定位到当前点击位置
     positionContent() {
       // 获取内容区域El, 获取触发区域El
