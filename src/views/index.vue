@@ -22,8 +22,8 @@
     <div>
       <g-popover position="bottom">
         <template slot="content"
-          >这是一段内容,这是一段内容,这是一段内容,这是一段内容。</template
-        >
+          >这是一段内容,这是一段内容,这是一段内容,这是一段内容。
+        </template>
         <g-button>bottom</g-button>
       </g-popover>
       <g-popover
@@ -46,7 +46,7 @@
       </g-popover>
     </div>
     <hr />
-    <g-collapse :selected="[]" accordion>
+    <g-collapse :selected="[]" accordion @change="handleChangeCollapse">
       <g-collapse-item name="1" title="一致性 Consistency">
         <p>
           与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；
@@ -111,6 +111,10 @@ export default {
         type: "error",
         position: "middle"
       });
+    },
+    handleChangeCollapse(e) {
+      console.log(e);
+      console.log("触发了");
     }
   }
 };

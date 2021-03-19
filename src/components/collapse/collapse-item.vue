@@ -68,18 +68,21 @@ export default {
     align-items: center;
     padding: 0 8px;
   }
+
   &:first-child {
     .title {
       border-top-left-radius: $border-radius;
       border-top-right-radius: $border-radius;
     }
   }
+
   &:last-child {
     .title {
       border-bottom-left-radius: $border-radius;
       border-bottom-right-radius: $border-radius;
     }
   }
+
   .content {
     padding: 8px;
   }

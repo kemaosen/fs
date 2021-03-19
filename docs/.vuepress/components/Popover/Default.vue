@@ -13,7 +13,7 @@
 
     <g-popover title="标题" width="200" position="left" trigger="click"
                content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
-      <g-button>hover 激活</g-button>
+      <g-button>click 激活</g-button>
     </g-popover>
 
     <g-popover title="标题" width="200" position="right" trigger="hover"
