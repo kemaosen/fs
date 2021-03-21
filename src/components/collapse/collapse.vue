@@ -7,6 +7,7 @@
 
 <script>
 import Vue from "vue";
+
 export default {
   name: "DistanceCollapse",
   props: {

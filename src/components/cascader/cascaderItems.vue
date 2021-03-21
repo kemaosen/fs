@@ -1,7 +1,6 @@
 <!-- 级联选择器递归组件页面 -->
 <template>
   <div class="cascader-item">
-    {{ value && value[level] && value[level].name }}{{ level }}
     <div class="left">
       <div
         class="label"
@@ -84,9 +83,9 @@ export default {
     border-left: 1px solid #e4e7ed;
   }
   .left {
-    padding: 6px 0;
     height: 100%;
     min-width: 180px;
+    overflow: auto;
     > .label {
       padding: 0 30px 0 20px;
       height: 34px;
