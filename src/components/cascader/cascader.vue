@@ -5,7 +5,11 @@
       <slot></slot>
     </div>
     <div class="g-popover" v-if="popoverVisible">
-      <cascader-items :items="source"></cascader-items>
+      <cascader-items
+        :items="source"
+        :value="value"
+        @change="handleChangeItem"
+      ></cascader-items>
     </div>
   </div>
 </template>
@@ -16,6 +20,10 @@ export default {
   name: "cascader",
   components: { cascaderItems },
   props: {
+    value: {
+      type: Array,
+      default: () => []
+    },
     source: {
       type: Array,
       required: true
@@ -27,11 +35,17 @@ export default {
       popoverVisible: false
     };
   },
-  methods: {}
+  methods: {
+    handleChangeItem(item) {
+      this.$emit("update:value", item);
+      this.$emit("change", item);
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
 .g-cascader {
+  position: relative;
   .g-trigger {
     border: 1px solid red;
     height: 32px;
@@ -39,9 +53,11 @@ export default {
   }
 
   .g-popover {
-    border: 1px solid red;
+    box-sizing: border-box;
+    position: absolute;
     height: 200px;
-    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   }
 }
 </style>

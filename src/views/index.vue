@@ -1,7 +1,13 @@
 <!-- 页面 -->
 <template>
   <div class="app-container">
-    <g-cascader :source="source"></g-cascader>
+    <p>{{ selected }}</p>
+    <g-cascader
+      :source="source"
+      :value.sync="selected"
+      @change="handlechange"
+    ></g-cascader>
+    <p>11111111111111111111</p>
     <hr />
   </div>
 </template>
@@ -11,6 +17,7 @@ export default {
   mounted() {},
   data() {
     return {
+      selected: [],
       source: [
         {
           name: "浙江",
@@ -34,7 +41,12 @@ export default {
       ]
     };
   },
-  methods: {}
+  methods: {
+    handlechange(value) {
+      // this.selected = value;
+      console.log(value, "index");
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
