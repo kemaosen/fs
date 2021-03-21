@@ -26,16 +26,9 @@ export default {
   },
   created() {
     if (this.eventBus) {
-      this.eventBus.$on("update:selected", name => {
-        // if(name === this.name){
-        //     console.log('我被选中了'+this.name);
-        //     this.active = true;
-        // }else{
-        //     console.log('我没有被选中了'+this.name);
-        //     this.active = false;
-        // }
-        //  this.active ：  先判断 name是否等于 this.name 相同返回true  否则返回false
-        this.active = name == this.name;
+      this.eventBus.$on("update:value", name => {
+        // 选中的展示出来
+        this.active = name === this.name;
       });
     }
   },
@@ -51,7 +44,7 @@ export default {
         return;
       }
       if (this.eventBus) {
-        this.eventBus.$emit("update:selected", this.name, this);
+        this.eventBus.$emit("update:value", this.name, this);
       }
       this.$emit("click", this);
     }
@@ -72,14 +65,17 @@ export default {
 
 .tabs-item {
   flex-shrink: 0;
-  padding: 0 2em;
+  padding: 0 1.5em;
   height: 100%;
   display: flex;
   align-items: center;
   cursor: pointer;
 
   &.active {
-    color: $color-blue;
+    color: $color-primary;
+    & > svg {
+      fill: $color-primary;
+    }
   }
 
   &.disabled {

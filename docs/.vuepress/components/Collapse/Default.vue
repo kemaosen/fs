@@ -1,7 +1,7 @@
 <!-- 页面 -->
 <template>
   <div class="container">
-    <g-collapse :selected="[]">
+    <g-collapse v-model="selected">
       <g-collapse-item name="1" title="一致性 Consistency">
         <p>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</p>
         <p>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</p>
@@ -39,8 +39,9 @@ export default {
   },
   data() {
     return {
+      selected:[],
       html: `
-    <g-collapse :selected="[]">
+    <g-collapse v-model="selected">
       <g-collapse-item name="1" title="一致性 Consistency">
         <p>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</p>
         <p>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</p>
@@ -59,6 +60,12 @@ export default {
         <p>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</p>
       </g-collapse-item>
     </g-collapse>
+
+    data() {
+      return {
+        selected:[],
+      }
+    }
       `
     }
   },

@@ -17,8 +17,8 @@ export default {
   },
   mounted() {},
   created() {
-    this.eventBus.$on("update:selected", name => {
-      this.active = name == this.name;
+    this.eventBus.$on("update:value", name => {
+      this.active = name === this.name;
     });
   },
   data() {

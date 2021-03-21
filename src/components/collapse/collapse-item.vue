@@ -23,7 +23,7 @@ export default {
   },
   inject: ["eventBus"],
   mounted() {
-    this.eventBus.$on("update:selected", names => {
+    this.eventBus.$on("update:value", names => {
       if (names.indexOf(this.name) >= 0) {
         // 当前组件的this 与传进来的this 不相等  关闭当前组件的手风琴
         this.open = true;

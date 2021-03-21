@@ -19,7 +19,7 @@
 ### Attributes
 | 参数        | 说明           | 类型  |可选值|默认值|
 | ------------- |:-------------:| -----:| -----:| -----:|
-|selected      |当前激活的面板|Array|||
+|value/v-model      |当前激活的面板|Array|||
 |accordion      |是否手风琴模式|Boolean||false|
 ### 组件解析
 Collapse组件是如何做到手风琴效果的  

@@ -5,6 +5,8 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 import "@/components/_var.scss";
+import "@/style/index.scss";
+
 import Button from "@/components/button";
 import Icon from "@/components/icon";
 import ButtonGroup from "@/components/button-group";
@@ -28,6 +30,7 @@ import TabsBody from "@/components/tab/tabs-body";
 import TabsHead from "@/components/tab/tabs-head";
 import TabsItem from "@/components/tab/tabs-item";
 import TabsPane from "@/components/tab/tabs-pane";
+import Cascader from "@/components/cascader/cascader";
 Vue.component("g-icon", Icon);
 Vue.component("g-button", Button);
 Vue.component("g-button-group", ButtonGroup);
@@ -47,6 +50,7 @@ Vue.component("g-tabs-body", TabsBody);
 Vue.component("g-tabs-head", TabsHead);
 Vue.component("g-tabs-item", TabsItem);
 Vue.component("g-tabs-pane", TabsPane);
+Vue.component("g-cascader", Cascader);
 
 new Vue({
   router,
