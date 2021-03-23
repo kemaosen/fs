@@ -6,8 +6,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "test": "vue-cli-service build && karma start --single-run",
+    "test:unit": "vue-cli-service test:unit --watch",
+    "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "doc": "vuepress dev docs",
     "docs:build": "vuepress build docs"
@@ -35,6 +35,8 @@
     "node-sass": "^4.12.0",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
+    "sinon": "^10.0.0",
+    "sinon-chai": "^3.5.0",
     "vue-template-compiler": "^2.6.11",
     "vuepress": "^1.8.2",
     "vuepress-plugin-autobar": "github:boboidream/vuepress-bar",

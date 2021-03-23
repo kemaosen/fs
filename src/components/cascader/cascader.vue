@@ -1,7 +1,7 @@
 <!-- 级联选择器页面 -->
 <template>
-  <div class="g-cascader">
-    <div class="g-trigger" @click="popoverVisible = !popoverVisible">
+  <div class="g-cascader" ref="cascader">
+    <div class="g-trigger" @click="open">
       <g-input
         type="text"
         v-model="result"
@@ -46,6 +46,23 @@ export default {
     handleChangeItem(item) {
       this.$emit("update:value", item);
       this.$emit("change", item);
+    },
+    close() {
+      this.popoverVisible = false;
+      document.removeEventListener("click", this.onClickDocument);
+      this.$emit("close");
+    },
+    open() {
+      this.popoverVisible = true;
+      this.$nextTick(() => {
+        document.addEventListener("click", this.onClickDocument);
+      });
+    },
+    onClickDocument(e) {
+      let { cascader } = this.$refs;
+      let { target } = e;
+      if (cascader === target || cascader.contains(target)) return;
+      this.close();
     }
   },
   computed: {
@@ -62,6 +79,7 @@ export default {
 <style lang="scss" scoped>
 .g-cascader {
   position: relative;
+  display: inline-block;
   .g-trigger {
     height: 32px;
     width: 222px;

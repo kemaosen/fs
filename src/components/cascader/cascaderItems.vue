@@ -80,6 +80,7 @@ export default {
     height: 100%;
     overflow: hidden;
     box-sizing: border-box;
+    user-select: none;
     border-left: 1px solid #e4e7ed;
   }
   .left {
@@ -93,6 +94,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      user-select: none;
       svg {
         fill: #999;
       }
