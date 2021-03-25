@@ -10,14 +10,31 @@
     ></g-cascader>
     <p>11111111111111111111</p>
     <hr />
+    <g-carousel :initial-index="index">
+      <g-carousel-item>
+        <div class="box">1</div>
+      </g-carousel-item>
+      <g-carousel-item>
+        <div class="box">2</div>
+      </g-carousel-item>
+    </g-carousel>
   </div>
 </template>
 <script>
 export default {
   name: "index",
-  mounted() {},
+  mounted() {
+    setInterval(() => {
+      if (this.index >= 1) {
+        this.index = -1;
+      }
+      this.index += 1;
+      console.log(this.index);
+    }, 3000);
+  },
   data() {
     return {
+      index: 0,
       selected: [],
       source: [
         {
@@ -52,5 +69,11 @@ export default {
 <style lang="scss" scoped>
 .app-container {
   padding: 20px;
+}
+.box {
+  width: 200px;
+  height: 150px;
+  background-color: #ddd;
+  border: 1px solid red;
 }
 </style>
