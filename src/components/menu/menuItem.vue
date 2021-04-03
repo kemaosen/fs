@@ -4,7 +4,7 @@
 </template>
 <script>
 export default {
-  name: "index",
+  name: "menu-item",
   mounted() {},
   data() {
     return {};
