@@ -32,10 +32,10 @@ import TabsItem from "@/components/tab/tabs-item";
 import TabsPane from "@/components/tab/tabs-pane";
 import Cascader from "@/components/cascader/cascader";
 import Carousel from "@/components/carousel/carousel";
-import menu from "@/components/menu/menu";
-import menuItem from "@/components/menu/menuItem";
-import subMenu from "@/components/menu/subMenu";
 import CarouselItem from "@/components/carousel/carousel-item";
+import Menu from "@/components/menu/menu";
+import MenuItem from "@/components/menu/menuItem";
+import SubMenu from "@/components/menu/subMenu";
 Vue.component("g-icon", Icon);
 Vue.component("g-button", Button);
 Vue.component("g-button-group", ButtonGroup);
@@ -58,9 +58,9 @@ Vue.component("g-tabs-pane", TabsPane);
 Vue.component("g-cascader", Cascader);
 Vue.component("g-carousel", Carousel);
 Vue.component("g-carousel-item", CarouselItem);
-Vue.component("g-carousel-menu", menu);
-Vue.component("g-carousel-menu-item", menuItem);
-Vue.component("g-carousel-sub-menu", subMenu);
+Vue.component("g-menu", Menu);
+Vue.component("g-menu-item", MenuItem);
+Vue.component("g-sub-menu", SubMenu);
 
 new Vue({
   router,

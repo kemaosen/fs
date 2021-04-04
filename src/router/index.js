@@ -7,8 +7,7 @@ const routes = [
   {
     path: "/",
     name: "About",
-    component: () =>
-      import(/* webpackChunkName: "index" */ "@/views/carousel.vue")
+    component: () => import(/* webpackChunkName: "index" */ "@/views/index.vue")
   },
   {
     path: "/collapse",

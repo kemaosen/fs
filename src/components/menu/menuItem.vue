@@ -1,15 +1,44 @@
 <!-- 页面 -->
 <template>
-  <div></div>
+  <div
+    @click="onChangeItem"
+    :class="{ 'g-menu-item': true, 'g-selected': selected }"
+  >
+    <slot></slot>
+  </div>
 </template>
 <script>
 export default {
-  name: "menu-item",
+  name: "g-menu-item",
+  props: {
+    name: {
+      type: [Number, String],
+      required: true
+    }
+  },
+  inject: ["root"],
+  created() {
+    this.root.menuAddItems(this);
+  },
   mounted() {},
   data() {
-    return {};
+    return {
+      selected: false
+    };
   },
-  methods: {}
+
+  methods: {
+    onChangeItem() {
+      this.$emit("add:menuItemSelectd", this.name);
+    }
+  }
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.g-menu-item {
+  padding: 10px 20px;
+}
+.g-selected {
+  background-color: red;
+}
+</style>
